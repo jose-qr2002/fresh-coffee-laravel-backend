@@ -14,7 +14,8 @@ Route::get('/user', function (Request $request) {
 Route::post('/logout', [AuthController::class, 'logout'])->middleware('auth:sanctum');
 
 // Almacenar ordenes
-Route::apiResource('/pedido', PedidoController::class)->middleware('auth:sanctum');
+Route::apiResource('/pedidos', PedidoController::class)->middleware('auth:sanctum');
+
 
 Route::apiResource('/categorias', CategoriaController::class);
 Route::apiResource('/productos', ProductoController::class);

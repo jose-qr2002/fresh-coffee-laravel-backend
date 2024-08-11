@@ -20,7 +20,9 @@ class PedidoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        return [
+            'message' => 'Realizando pedido',
+        ];
     }
 
     /**
