@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Pedido;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class PedidoController extends Controller
 {
@@ -20,8 +21,14 @@ class PedidoController extends Controller
      */
     public function store(Request $request)
     {
+        // Almacenar una orden
+        $pedido = new Pedido();
+        $pedido->user_id = Auth::user()->id; // Podemos obtener la id porque nuestra peticions es autenticada
+        $pedido->total = $request->total;
+        $pedido->save();
+
         return [
-            'message' => 'Realizando pedido',
+            'message' => 'El pedido se guardo'
         ];
     }
 
