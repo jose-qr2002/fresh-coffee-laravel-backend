@@ -17,7 +17,7 @@ class PedidoController extends Controller
     public function index()
     {
         // With trae los registros de user por su relacion unica
-        return new PedidoCollection(Pedido::with('user')->where('estado', 0)->get());
+        return new PedidoCollection(Pedido::with('user')->with('productos')->where('estado', 0)->get());
     }
 
     /**
