@@ -17,8 +17,8 @@ Route::post('/logout', [AuthController::class, 'logout'])->middleware('auth:sanc
 Route::apiResource('/pedidos', PedidoController::class)->middleware('auth:sanctum');
 
 
-Route::apiResource('/categorias', CategoriaController::class);
-Route::apiResource('/productos', ProductoController::class);
+Route::apiResource('/categorias', CategoriaController::class)->middleware('auth:sanctum');
+Route::apiResource('/productos', ProductoController::class)->middleware('auth:sanctum');
 
 // Autenticacion
 Route::post('/registro', [AuthController::class, 'register']);
